@@ -16,9 +16,11 @@ Signature Shot Moves:
 '''
 import openpyxl
 import pandas as pd
+import os
+from dotenv import load_dotenv
 
-
-
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 
 class VideoData:
   def __init__(self, video_id, upload_date, signature_move, timestamps, game_details, opponent, video_url, duration):
@@ -30,6 +32,7 @@ class VideoData:
     self.opponent = opponent
     self.video_url = video_url
     self.duration = duration
+
 
 
 
