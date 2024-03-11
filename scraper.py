@@ -4,7 +4,7 @@ compile list of Kobe Bryant signature moves
 find videos for each signature move
 '''
 from sys import api_version
-import openpyxl
+from datetime import datetime
 import pandas as pd
 import os
 from dotenv import load_dotenv
@@ -12,6 +12,8 @@ import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
 from pprint import pprint
+
+
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
@@ -30,6 +32,8 @@ class VideoData:
 plaery_name = "Kobe Bryant"
 signature_moves = ["Fadeaway", "3 Pointer", "Dunk", "Layup", "Clutch Shot", "Turnaround Fadeaway", "Post Move", "Crossover"]
 
+
+
 def get_video(payer_name, signature_move):
     search_query = f'{payer_name} {signature_move} highlights'
 
@@ -43,30 +47,43 @@ def get_video(payer_name, signature_move):
         type="video",
         q=search_query,
         videoDefinition='any',
-        maxResults=1
+        maxResults=5
     )
-
     try:
         response = request.execute()
         if not response:
             print("No response received.")
         else:
-            data = response["items"][0]
-            video_id = data["id"]["videoId"]
-            upload_date = data["snippet"]["publishTime"]
-            video_url = f'https://www.youtube.com/watch?v={video_id}'  
+            videos_data = []
+            for item in response.get("items", []):
+               video_id = item.get("id", {}).get("videoId")
+               upload_date = (item.get("snippet", {}).get("publishTime"))
+               video_url = f'https://www.youtube.com/watch?v={video_id}'
+
+               if video_id and upload_date:
+                    parsed_datetime = datetime.fromisoformat(upload_date).strftime("%Y-%m-%d %H:%M:%S %z")
+                    video = VideoData(video_id=video_id, upload_date=parsed_datetime, video_url=video_url)
+                    videos_data.append(video) 
     except Exception as err:
         print(f"An error ocurred: {err}")
+    
+    videos_dict = [{"video_id": video.video_id, 
+                    "upload_date": video.upload_date, 
+                    "video_url": video.video_url}
+                    for video in videos_data]
 
-    video = VideoData(video_id, upload_date, video_url)
-    return video
+    return videos_dict
 
-# TODO save video data to spreadsheet
-# def save_video():
+    
+    
+
+# TODO create pandas dataframe for video data and write to csv file
+video = get_video("Kobe Bryant", "Fadeaway")
+pprint(video)
    
 
-video_data = get_video("Kobe Bryant", "Fadeaway")
-print(video_data)
+
+
 
 
 
