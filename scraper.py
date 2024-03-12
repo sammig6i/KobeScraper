@@ -3,8 +3,9 @@ Kobe Bryant Signature Move Dataset
 compile list of Kobe Bryant signature moves
 find videos for each signature move
 '''
-from sys import api_version
 from datetime import datetime
+import csv
+from operator import index
 import pandas as pd
 import os
 from dotenv import load_dotenv
@@ -29,13 +30,9 @@ class VideoData:
     # self.opponent = opponent # opposing team, to be labelled
     # self.duration = duration # duration of clip, to be labelled
 
-plaery_name = "Kobe Bryant"
-signature_moves = ["Fadeaway", "3 Pointer", "Dunk", "Layup", "Clutch Shot", "Turnaround Fadeaway", "Post Move", "Crossover"]
-
-
 
 def get_video(payer_name, signature_move):
-    search_query = f'{payer_name} {signature_move} highlights'
+    search_query = f'{payer_name} {signature_move} game highlights'
 
     api_service_name = "youtube"
     api_version = "v3"
@@ -47,7 +44,7 @@ def get_video(payer_name, signature_move):
         type="video",
         q=search_query,
         videoDefinition='any',
-        maxResults=5
+        maxResults=25
     )
     try:
         response = request.execute()
@@ -67,20 +64,28 @@ def get_video(payer_name, signature_move):
     except Exception as err:
         print(f"An error ocurred: {err}")
     
-    videos_dict = [{"video_id": video.video_id, 
+    for video in videos_data:
+        videos_dict = {"video_id": video.video_id, 
                     "upload_date": video.upload_date, 
-                    "video_url": video.video_url}
-                    for video in videos_data]
+                    "video_url": video.video_url
+                    }
 
     return videos_dict
 
-    
-    
+def save_video(videos):
+    df = pd.DataFrame(videos)
+    df.rename_axis('ID', inplace=True)
+    df.to_csv("kobe_videos.csv")
 
-# TODO create pandas dataframe for video data and write to csv file
-video = get_video("Kobe Bryant", "Fadeaway")
-pprint(video)
    
+# TODO create pandas dataframe for video data and write to csv file
+signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post Move", "crossover"]
+videos_data = []
+for sig in signature_moves:
+    videos = get_video("kobe bryant", sig)
+    videos_data.append(videos)
+
+save_video(videos_data)
 
 
 
