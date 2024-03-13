@@ -5,6 +5,7 @@ find videos for each signature move
 '''
 from datetime import datetime
 import csv
+from http.client import HTTPException
 from operator import index
 import pandas as pd
 import os
@@ -44,7 +45,7 @@ def get_video(payer_name, signature_move):
         type="video",
         q=search_query,
         videoDefinition='any',
-        maxResults=25
+        maxResults=14
     )
     try:
         response = request.execute()
@@ -75,11 +76,11 @@ def get_video(payer_name, signature_move):
 def save_video(videos):
     df = pd.DataFrame(videos)
     df.rename_axis('ID', inplace=True)
-    df.to_csv("kobe_videos.csv")
+    df.to_excel("kobe_videos.xlsx")
 
    
 # TODO create pandas dataframe for video data and write to csv file
-signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post Move", "crossover"]
+signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
 videos_data = []
 for sig in signature_moves:
     videos = get_video("kobe bryant", sig)
