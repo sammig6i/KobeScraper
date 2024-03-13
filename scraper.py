@@ -4,9 +4,6 @@ compile list of Kobe Bryant signature moves
 find videos for each signature move
 '''
 from datetime import datetime
-import csv
-from http.client import HTTPException
-from operator import index
 import pandas as pd
 import os
 from dotenv import load_dotenv
@@ -62,7 +59,7 @@ def get_video(payer_name, signature_move):
                if video_id and upload_date:
                     parsed_datetime = datetime.fromisoformat(upload_date).strftime("%Y-%m-%d %H:%M:%S %z")
                     video_info = {"video_id": video_id,
-                                  "upload_date": upload_date,
+                                  "upload_date": parsed_datetime,
                                   "video_url": video_url}
                     videos_dict.append(video_info)
                     
@@ -77,7 +74,6 @@ def save_video(videos):
     df.to_excel("kobe_videos.xlsx")
 
    
-# TODO create pandas dataframe for video data and write to csv file
 signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
 all_videos = []
 for sig in signature_moves:
