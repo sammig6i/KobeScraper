@@ -45,14 +45,15 @@ def get_video(payer_name, signature_move):
         type="video",
         q=search_query,
         videoDefinition='any',
-        maxResults=14
+        maxResults=6
     )
+
+    videos_dict = []
     try:
         response = request.execute()
         if not response:
             print("No response received.")
         else:
-            videos_data = []
             for item in response.get("items", []):
                video_id = item.get("id", {}).get("videoId")
                upload_date = (item.get("snippet", {}).get("publishTime"))
@@ -60,17 +61,14 @@ def get_video(payer_name, signature_move):
 
                if video_id and upload_date:
                     parsed_datetime = datetime.fromisoformat(upload_date).strftime("%Y-%m-%d %H:%M:%S %z")
-                    video = VideoData(video_id=video_id, upload_date=parsed_datetime, video_url=video_url)
-                    videos_data.append(video) 
+                    video_info = {"video_id": video_id,
+                                  "upload_date": upload_date,
+                                  "video_url": video_url}
+                    videos_dict.append(video_info)
+                    
     except Exception as err:
         print(f"An error ocurred: {err}")
     
-    for video in videos_data:
-        videos_dict = {"video_id": video.video_id, 
-                    "upload_date": video.upload_date, 
-                    "video_url": video.video_url
-                    }
-
     return videos_dict
 
 def save_video(videos):
@@ -81,14 +79,13 @@ def save_video(videos):
    
 # TODO create pandas dataframe for video data and write to csv file
 signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
-videos_data = []
+all_videos = []
 for sig in signature_moves:
     videos = get_video("kobe bryant", sig)
-    videos_data.append(videos)
+    all_videos.extend(videos)
+    
 
-save_video(videos_data)
-
-
+save_video(all_videos)
 
 
 
