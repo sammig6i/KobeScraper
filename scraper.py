@@ -12,21 +12,11 @@ import googleapiclient.discovery
 import googleapiclient.errors
 from pprint import pprint
 
-
+#TODO label kobe_videos.xlsx
+# ! fix scraper to pull and add new videos to spreadsheets
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
-
-class VideoData:
-  def __init__(self, video_id, upload_date, video_url):
-    self.video_id = video_id
-    self.upload_date = upload_date
-    self.video_url = video_url # https://www.youtube.com/watch?v={videoID}
-    # self.signature_move = signature_move # to be labelled
-    # self.timestamps = timestamps # start and end time, to be labelled
-    # self.game_details = game_details # playoffs, nba finals, or regular season, to be labelled
-    # self.opponent = opponent # opposing team, to be labelled
-    # self.duration = duration # duration of clip, to be labelled
 
 
 def get_video(payer_name, signature_move):
@@ -42,7 +32,7 @@ def get_video(payer_name, signature_move):
         type="video",
         q=search_query,
         videoDefinition='any',
-        maxResults=6
+        maxResults=1
     )
 
     videos_dict = []
@@ -69,16 +59,21 @@ def get_video(payer_name, signature_move):
     return videos_dict
 
 def save_video(videos):
+    columns = ['video_id', 'upload_date', 'video_url']
     df = pd.DataFrame(videos)
-    df.rename_axis('ID', inplace=True)
-    df.to_excel("kobe_videos.xlsx")
+    with pd.ExcelWriter("kobe_videos_copy.xlsx", mode='a') as writer:
+        df.to_excel(writer, "kobe_videos_copy.xlsx", columns=columns)
 
-   
-signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
+
+existing_videos = pd.read_excel("kobe_videos_copy.xlsx")
+existing_videos_ids = set(existing_videos["video_id"])
+
 all_videos = []
+signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
 for sig in signature_moves:
-    videos = get_video("kobe bryant", sig)
-    all_videos.extend(videos)
+    new_videos = get_video("kobe bryant", sig)
+    unique_new_videos = [video for video in new_videos if video["video_id"] not in existing_videos_ids]
+    all_videos.extend(unique_new_videos)
     
 
 save_video(all_videos)
