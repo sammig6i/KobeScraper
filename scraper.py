@@ -12,8 +12,8 @@ import googleapiclient.discovery
 import googleapiclient.errors
 from pprint import pprint
 
-#TODO label kobe_videos.xlsx
 # ! fix scraper to pull and add new videos to spreadsheets
+# TODO later collect data on clutch shots to add to MVP
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
@@ -69,7 +69,7 @@ existing_videos = pd.read_excel("kobe_videos_copy.xlsx")
 existing_videos_ids = set(existing_videos["video_id"])
 
 all_videos = []
-signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "clutch shot", "post move", "crossover"]
+signature_moves = ["fadeaway", "3 pointer", "dunk", "layup", "post move", "crossover"]
 for sig in signature_moves:
     new_videos = get_video("kobe bryant", sig)
     unique_new_videos = [video for video in new_videos if video["video_id"] not in existing_videos_ids]
