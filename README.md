@@ -91,7 +91,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 - [![Ultralytics][Ultralytics]][Ultralytics-url]
 - [![Poetry][Poetry.com]][Poetry-url]
-- [![GCP][Google.com]][GCP-url]
+- [![GCP][GCP]][GCP-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
