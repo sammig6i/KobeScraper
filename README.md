@@ -92,6 +92,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 - [![Ultralytics][Ultralytics]][Ultralytics-url]
 - [![Poetry][Poetry.com]][Poetry-url]
 - [![GCP][GCP]][GCP-url]
+- [![Python][Python]][Python-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -235,3 +236,5 @@ Project Link: [https://github.com/sammig6i/KobeScraper](https://github.com/sammi
 [Poetry-url]: https://python-poetry.org/
 [GCP]: https://img.shields.io/badge/Google%20Cloud-ffffff?style=for-the-badge&logo=googlecloud
 [GCP-url]: https://cloud.google.com/?_gl=1*3cxg49*_up*MQ..&gclid=CjwKCAjw5ImwBhBtEiwAFHDZxxbouUAcvliklTkideUMN_heQr2xa9sATF73_BhtBlGbrf9pOrcx_hoCJxEQAvD_BwE&gclsrc=aw.ds&hl=en
+[Python]: https://img.shields.io/badge/Python-ffffff?style=for-the-badge&logo=python
+[Python-url]: https://www.python.org/
