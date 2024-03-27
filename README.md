@@ -31,23 +31,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/sammig6i/KobeScraper">
     <img src="images/Kobe-Bryant.jpg" alt="Logo" width="150" height="150">
   </a>
 
 <h3 align="center">KobeScraper</h3>
 
   <p align="center">
-    project_description
-    <br />
+    A CV model that uses pose estimation and player tracking to generate unique Kobe Bryant highlights based on a user's chosen move.
+    <!-- <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <br /> -->
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/sammig6i/KobeScraper">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/sammig6i/KobeScraper/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/sammig6i/KobeScraper/issues">Request Feature</a>
   </p>
 </div>
 
@@ -87,9 +87,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+### Built With (in progress)
 
-- [![Next][Next.js]][Next-url]
+- [![Ultralytics][Ultralytics]][Ultralytics-url]
 - [![React][React.js]][React-url]
 - [![Vue][Vue.js]][Vue-url]
 - [![Angular][Angular.io]][Angular-url]
@@ -121,7 +121,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/sammig6i/KobeScraper.git
    ```
 3. Install NPM packages
    ```sh
@@ -186,9 +186,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@sammig6i](https://twitter.com/sammig6i) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/sammig6i/KobeScraper](https://github.com/sammig6i/KobeScraper)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,3 +234,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
+[Ultralytics]: https://img.shields.io/badge/Ultralytics-FFFFFF?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMjUyIiBoZWlnaHQ9IjI2NCIgdmlld0JveD0iMCAwIDI1MiAyNjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI%2BCjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMDA4Xzk0MTc3KSI%2BCjxtYXNrIGlkPSJtYXNrMF8xMDA4Xzk0MTc3IiBzdHlsZT0ibWFzay10eXBlOmx1bWluYW5jZSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iLTEiIHk9IjYiIHdpZHRoPSIyNTQiIGhlaWdodD0iMjU4Ij4KPHBhdGggZD0iTTI1Mi4zOTEgNi4wNjc4MUgtMC40Mzc1VjI2My45MzJIMjUyLjM5MVY2LjA2NzgxWiIgZmlsbD0id2hpdGUiLz4KPC9tYXNrPgo8ZyBtYXNrPSJ1cmwoI21hc2swXzEwMDhfOTQxNzcpIj4KPHBhdGggZD0iTTU4Ljc1IDYuMDY4NTFDMjYuMTEzNiA2LjA2ODUxIC0wLjQzNzUgMzIuNjMxOCAtMC40Mzc1IDY1LjI4MjlDLTAuNDM3NSA5Ny45MzE0IDI2LjExMzYgMTI0LjQ5NiA1OC43NSAxMjQuNDk2QzkxLjM4NyAxMjQuNDk2IDExNy45MzggOTcuOTMxNCAxMTcuOTM4IDY1LjI4MjlDMTE3LjkzOCAzMi42MzE4IDkxLjM4NyA2LjA2ODUxIDU4Ljc1IDYuMDY4NTFaIiBmaWxsPSIjMEIyM0E5Ii8%2BCjxwYXRoIGQ9Ik0xMjUuNzE5IDE5MS40ODlDMTA0LjM5OSAxOTEuNDg5IDg0LjI1NDIgMTg2LjA4OCA2Ni41NzAzIDE3Ni42MDZWMjAzLjQ3MUM2Ni41NzAzIDIzNi4wNzEgOTIuNTg5OSAyNjMuMTIxIDEyNS4xNzUgMjYzLjQzNkMxNTguMDc4IDI2My43NTQgMTg0Ljk0NyAyMzcuMDY5IDE4NC45NDcgMjA0LjIyNlYxNzYuNTgxQzE2Ny4yNDcgMTg2LjA4NyAxNDcuMDY5IDE5MS40ODkgMTI1LjcxOSAxOTEuNDg5WiIgZmlsbD0iIzBCMjNBOSIvPgo8cGF0aCBkPSJNMTMzLjQ2NiA2NS4yODk1QzEzMy40MDUgMTA2LjQ4MSA5OS45Nzk2IDEzOS45MzQgNTguNjU4NCAxNDAuMDM1QzQyLjcxODUgMTQwLjA3NiAyNy43NjA3IDEzNS4xMTIgMTUuNTU0NyAxMjYuNDQ1QzM3LjE4ODggMTY1LjEzNCA3OC40NzAxIDE5MS41MTQgMTI1LjY3MyAxOTEuNDIzQzE5NC4yNDMgMTkxLjQ3NyAyNTAuODIzIDEzNS42MjYgMjUxLjk2NiA2Ny4xMjUzTDI1MS44MDQgNjYuOTc4N0MyNTEuODcxIDY1LjI3MTkgMjUxLjc4OCA2Ni42NyAyNTEuODcxIDY1LjI3MTlDMjUxLjkwNCAzMi41OTggMjI1LjMxMiA1LjkzMTAxIDE5Mi44MTUgNi4wNDQ3N0MxNjAuMDA4IDYuMTc0MzIgMTMzLjQ5OSAzMi42MTUyIDEzMy40NjYgNjUuMjg5NVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xMDA4Xzk0MTc3KSIvPgo8L2c%2BCjwvZz4KPGRlZnM%2BCjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8xMDA4Xzk0MTc3IiB4MT0iNzEuMTU1MiIgeTE9IjE4OS4zMjgiIHgyPSIyMTcuNzA4IiB5Mj0iMjcuMDUyNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMDlEQkYwIi8%2BCjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBCMjNBOSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzEwMDhfOTQxNzciPgo8cmVjdCB3aWR0aD0iMjUyIiBoZWlnaHQ9IjI2NCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K&logoColor=Ultralytics
+[Ultralytics-url]: https://www.ultralytics.com/
