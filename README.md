@@ -38,7 +38,7 @@
 <h3 align="center">KobeScraper</h3>
 
   <p align="center">
-    A CV model that uses pose estimation and player tracking to generate unique Kobe Bryant highlights based on a user's chosen move.
+    A Computer Vision model that uses pose estimation and player tracking algorithms along with the YOLOv8 object detection model for compiling unique Kobe Bryant highlights based on a user's chosen move.
     <!-- <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br /> -->
@@ -83,7 +83,8 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+#### Features
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
